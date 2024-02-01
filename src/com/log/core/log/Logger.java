@@ -106,6 +106,42 @@ public abstract class Logger {
     public abstract void error(String message, Throwable throwable);
 
     /**
+     * 获取Logger
+     *
+     * @return Logger
+     */
+    public static Logger getLogger() {
+        return getLogger(null);
+    }
+
+    /**
+     * 获取Logger
+     *
+     * @return Logger
+     */
+    public static Logger getLogger(String loggerName) {
+        return LoggerFactory.getLoggerFactory().getLogger(loggerName);
+    }
+
+    /**
+     * 获取Debug Logger
+     *
+     * @return Logger
+     */
+    public static Logger getDebugLogger(String loggerName) {
+        return LoggerFactory.geDebugLoggerFactory().getDebugLogger(loggerName);
+    }
+
+    /**
+     * 获取Custom Logger
+     *
+     * @return Logger
+     */
+    public static Logger getCustomLogger(String customLoggerFactory, String loggerName) {
+        return LoggerFactory.geCustomLoggerFactory(customLoggerFactory).getDebugLogger(loggerName);
+    }
+
+    /**
      * 设置当前日志级别
      *
      * @param level 日志级别
